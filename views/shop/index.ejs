@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../partials/head') %>
+  <body class="container">
+    <header><%- include('../partials/navbar',{active:"shop"}) %></header>
+    <div class="container text-center py-4 my-4">
+   
+      <button type="button" class="btn btn-outline-success btn-lg " data-toggle="modal" data-target="#addRestModal">
+        Add Restaurants
+      </button>
+
+    </div>
+
+
+    <div class="row">
+      <% for(var i=0;i<data.length;i++){  %>
+        <div class="col-lg-4 mb-4 text-center">
+          <div class="card" style="width: 18rem;">
+            <img src="<%= data[i].image %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= data[i].name %> </h5>
+              <p class="card-text">Place : <%= data[i].place %></p>
+           
+              <a href="/shop/<%=data[i].name %>" class="btn btn-primary">See Details</a>
+            </div>
+          </div>
+
+        </div> 
+        <% } %> 
+        </div>
+
+
+
+    <!-- Modal form to add Restaurants-->
+    <%- include('addModal') %> 
+  
+    
+
+
+
+    </body>
+    <footer><%- include('../partials/footer') %></footer>
+</body>
+</html>
+
